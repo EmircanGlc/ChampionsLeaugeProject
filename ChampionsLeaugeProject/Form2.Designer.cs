@@ -51,6 +51,7 @@ namespace ChampionsLeaugeProject
             this.Frm2button1.TabIndex = 1;
             this.Frm2button1.Text = "Puan Durumu";
             this.Frm2button1.UseVisualStyleBackColor = true;
+            this.Frm2button1.Click += new System.EventHandler(this.Frm2button1_Click);
             // 
             // Form2
             // 
@@ -61,6 +62,7 @@ namespace ChampionsLeaugeProject
             this.Controls.Add(this.ButtonForm2);
             this.Name = "Form2";
             this.Text = "Fikstür";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 
         }

@@ -18,7 +18,7 @@ namespace ChampionsLeaugeProject
         List<ListBox> torbalar = new List<ListBox>();
 
         List<ListBox> gruplar = new List<ListBox>();
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -124,7 +124,7 @@ namespace ChampionsLeaugeProject
             for (int j = 0; j < 4; j++) //Bu sayede bir grupta 4 takım olucak ve sonrasında döngü bitecektir. j=grup
             {
                 takimsec.Clear(); //Seçilen takımları silelim ki aynı takımlar tekrar gelmesin.
-                for (int i = 0; i < 8; i++)               
+                for (int i = 0; i < 8; i++)
                 {
                     int secilentakim = rastgele.Next(0, takimlar.Count / 4); //1 grupta toplam takım sayısının 4 e bölümü kadar 
                                                                              //takım olabilir.
@@ -165,7 +165,7 @@ namespace ChampionsLeaugeProject
                 }
             }
         }
-        private bool Aynıulkedentakimvarmi(ListBox grup,Takim takim)
+        private bool Aynıulkedentakimvarmi(ListBox grup, Takim takim)
         {
             bool durum = false;
             for (int i = 0; i < grup.Items.Count; i++)
@@ -176,7 +176,7 @@ namespace ChampionsLeaugeProject
                     durum = true;
                     break;
                 }
-                
+
             }
             return durum;
         }
@@ -197,17 +197,17 @@ namespace ChampionsLeaugeProject
                     takimsec.Add(secilentakim);
                 }
             }
-                for(int i=0; i < takimsec.Count; i++)
+            for (int i = 0; i < takimsec.Count; i++)
             {
-                if (i<8)
+                if (i < 8)
                 {
                     LstTorba1.Items.Add(takimlar[takimsec[i]]);
                 }
-                else if (i<16)
+                else if (i < 16)
                 {
                     LstTorba2.Items.Add(takimlar[takimsec[i]]);
                 }
-                else if (i<24)
+                else if (i < 24)
                 {
                     LstTorba3.Items.Add(takimlar[takimsec[i]]);
                 }
@@ -231,7 +231,7 @@ namespace ChampionsLeaugeProject
             gruplar.Add(listBox8);
         }
 
-      
+
 
         private void LstTorba1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -245,10 +245,25 @@ namespace ChampionsLeaugeProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form2 formfikstürgecis = new Form2();  //2.forma geçiş yaptık.
-            formfikstürgecis.Show();
+            Form2 form2 = new Form2();
+
+            
+            foreach (Control control in Controls)
+            {
+                if (control is ListBox listBox)
+                {
+                    foreach (var item in listBox.Items)
+                    {
+                        form2.ListBoxItems.Add(item.ToString()); // Çözemedim:(((( O yüzden devam edemiyorum. Buradan devam edilecek.
+                    }
+
+                }
+
+            }
+            form2.Show();
+
+
         }
     }
 }
-
 
